@@ -1,40 +1,15 @@
-"""Styling constants for the digital twin Gradio app."""
-
-GOLD = "#ecad0a"
-BLUE = "#209dd7"
-PURPLE = "#753991"
-
-EXAMPLES = [
-    "Tell me about your background and experience.",
-    "What kinds of projects are you working on now?",
-    "What are your strongest technical skills?",
-    "How can I get in touch with you?",
-]
-
 CSS = """
 :root {
-  --twin-gold: #ecad0a;
-  --twin-blue: #209dd7;
-  --twin-purple: #753991;
-  --twin-bg: #0d0d10;
-  --twin-surface: #16161b;
-  --twin-surface-2: #1c1c22;
-  --twin-border: #2a2a32;
-  --twin-border-strong: #3a3a44;
-  --twin-text: #ececef;
-  --twin-muted: #8c8c95;
-}
-
-/* Light mode: Gradio adds `.dark` to <body> when dark; absence = light.
-   Only the neutral palette flips — gold/blue/purple accents stay identical. */
-body:not(.dark) {
-  --twin-bg: #f4f4f6;
+  --twin-gold: #b06a0a;
+  --twin-blue: #0e8f86;
+  --twin-purple: #0e8f86;
+  --twin-bg: #f6f5f1;
   --twin-surface: #ffffff;
-  --twin-surface-2: #ededf0;
-  --twin-border: #dcdce2;
-  --twin-border-strong: #b8b8c0;
-  --twin-text: #1a1a20;
-  --twin-muted: #6a6a72;
+  --twin-surface-2: #f0efe9;
+  --twin-border: #dedad0;
+  --twin-border-strong: #c5c0b3;
+  --twin-text: #1c1e24;
+  --twin-muted: #666b76;
 }
 
 footer, .built-with, .show-api, .api-docs { display: none !important; }
@@ -45,7 +20,7 @@ html, body, gradio-app { background: var(--twin-bg) !important; }
 .gradio-container {
   background: var(--twin-bg) !important;
   color: var(--twin-text) !important;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
   width: 100% !important;
   max-width: 880px !important;
   min-width: 0 !important;
@@ -62,6 +37,7 @@ html, body, gradio-app { background: var(--twin-bg) !important; }
 /* ---------- Title ---------- */
 .gradio-container h1 {
   color: var(--twin-text) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
   font-size: 26px !important;
   font-weight: 700 !important;
   letter-spacing: -0.02em !important;
@@ -137,7 +113,7 @@ button, input, textarea,
   color: var(--twin-text) !important;
 }
 
-/* ---------- Purple stripe ----------
+/* ---------- Accent stripe ----------
    Apply to every common bubble class for assistant rows (we don't know which
    one the running Gradio uses), then suppress on any *nested* instance so the
    stripe lands on the outermost matching element only — exactly one stripe. */
@@ -171,9 +147,7 @@ button, input, textarea,
   border-left: 0 !important;
 }
 
-/* ---------- Uniform font size in bubbles ----------
-   The "first paragraph different size" was caused by a leaky `.prose p:first-of-type`
-   selector. Force every paragraph in a bubble to the same size. */
+/* ---------- Uniform font size in bubbles ---------- */
 .message-row .message,
 .message-row .message-bubble,
 .message-row .bubble {
@@ -219,7 +193,7 @@ textarea, input[type="text"] {
   background: var(--twin-surface) !important;
   border: 1px solid var(--twin-border) !important;
   color: var(--twin-text) !important;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: 14px !important;
   padding: 12px 14px !important;
   line-height: 1.4 !important;
@@ -234,7 +208,7 @@ textarea::placeholder, input::placeholder { color: var(--twin-muted) !important;
 
 /* ---------- Buttons ---------- */
 button {
-  font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace !important;
+  font-family: 'IBM Plex Mono', 'SF Mono', Menlo, monospace !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   font-size: 11px !important;
@@ -261,7 +235,7 @@ button.submit-button,
 button.lg.primary {
   background: var(--twin-gold) !important;
   border: 1px solid var(--twin-gold) !important;
-  color: #111111 !important;
+  color: #fff8ec !important;
   min-height: 48px !important;
   align-self: stretch !important;
   padding: 0 14px !important;
@@ -273,12 +247,12 @@ button.primary:hover,
 button.submit:hover,
 .submit-button:hover,
 button.lg.primary:hover {
-  background: #ffc320 !important;
-  border-color: #ffc320 !important;
-  color: #111111 !important;
+  background: var(--twin-blue) !important;
+  border-color: var(--twin-blue) !important;
+  color: #ffffff !important;
 }
 
-/* ---------- Submit-button icon: center vertically and size correctly ---------- */
+/* ---------- Submit-button icon ---------- */
 button.submit svg,
 button.submit-button svg,
 .submit-button svg,
@@ -289,7 +263,7 @@ button[variant="primary"] svg {
   margin: 0 auto !important;
   display: block !important;
   align-self: center !important;
-  color: #111111 !important;
+  color: #fff8ec !important;
   fill: currentColor !important;
   stroke: currentColor !important;
 }
@@ -307,7 +281,7 @@ button[variant="primary"] svg {
   color: var(--twin-text) !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: 13px !important;
   font-weight: 400 !important;
   padding: 10px 14px !important;
@@ -343,7 +317,7 @@ button[variant="primary"] svg {
 ::-webkit-scrollbar-thumb:hover { background: var(--twin-purple); }
 
 /* ---------- Selection ---------- */
-::selection { background: var(--twin-gold); color: #111111; }
+::selection { background: var(--twin-gold); color: #fff8ec; }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 640px) {
@@ -356,14 +330,20 @@ JS = """
 () => {
   document.title = 'Digital Twin';
 
+  // Force light mode always, regardless of system preference
+  const forceLight = () => {
+    document.body.classList.remove('dark');
+    document.documentElement.classList.remove('dark');
+  };
+  forceLight();
+  new MutationObserver(forceLight).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
   const focusInput = () => {
     const areas = document.querySelectorAll('textarea');
     if (areas.length) areas[areas.length - 1].focus();
   };
   setTimeout(focusInput, 300);
 
-  // Re-focus the message field whenever Gradio re-enables it
-  // (i.e. after the assistant finishes responding).
   const watchTextarea = (area) => {
     if (area.dataset.twinWatched) return;
     area.dataset.twinWatched = '1';
@@ -380,3 +360,9 @@ JS = """
   new MutationObserver(scan).observe(document.body, { childList: true, subtree: true });
 }
 """
+
+EXAMPLES = [
+    "What projects have you built?",
+    "What are your main skills?",
+    "How can I get in touch with you?",
+]
